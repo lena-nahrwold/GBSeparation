@@ -73,3 +73,20 @@ There are also some data requirements to be able to run the code
 
 ### Test file
 In the in folder on this repo you can find a test file to run the code. The out folder also contains the leaf-wood separated results for this file so you have an idea of the results.
+
+
+## Docker
+
+To build a Docker container with all the libraries installed use:
+```
+docker build -t gbseparation .
+```
+
+Then to run the semantic segmentation use:
+```
+docker run --gpus all -it \
+    -v /path/to/input:/in \
+    -v /path/to/output:/out \
+    gbseparation \
+    python opt/run_GBS.py
+```
